@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Peppersoup Shop — Kalabari peppersoup, Lekki Phase 1</title>
+<meta name="description" content="Authentic Kalabari peppersoup in Lekki Phase 1, Lagos. Catfish, goatmeat, Fisherwoman's Pot and the Ajumbese healing broth — cooked fresh daily. Order on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --mangrove:#0C3326;
+  --mangrove-lift:#124233;
+  --night:#071A13;
+  --brass:#C8A24A;
+  --brass-bright:#DFBB66;
+  --ivory:#F2EBDD;
+  --nsuku:#B9AF9C;
+  --ember:#EE4C1E;
+  --calabash:#3FA34D;
+  --madras:#9E2B25;
+  --rule:rgba(200,162,74,.24);
+  --f-display:"Bodoni Moda",Didot,Georgia,serif;
+  --f-body:"Archivo","Helvetica Neue",Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+.js .reveal, .js .hero-inner > *, .js .menu-block .row { visibility: hidden; }
+body{
+  font-family:var(--f-body);background:var(--night);color:var(--ivory);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
+.container{max-width:1140px;margin:0 auto;padding:0 32px}
+@media(max-width:640px){.container{padding:0 20px}}
+
+h1,h2,h3,.display{font-family:var(--f-display);font-weight:400}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--brass);margin-bottom:22px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--brass);opacity:.7}
+
+/* ---------- pelete bite band ---------- */
+.band{display:block;width:100%;height:34px}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(7,26,19,.9);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;
+  max-width:1140px;margin:0 auto;padding:16px 32px;gap:20px}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo svg{width:30px;height:30px;flex-shrink:0}
+.nav-logo .wm{font-family:var(--f-display);font-size:1.02rem;letter-spacing:.04em;white-space:nowrap}
+.nav-links{display:flex;gap:32px;font-size:.85rem;font-weight:500;letter-spacing:.02em}
+.nav-links a{opacity:.78;transition:opacity .2s}
+.nav-links a:hover{opacity:1;color:var(--brass)}
+.nav-cta{border:1px solid var(--brass);color:var(--brass);padding:9px 20px;
+  font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  transition:background .2s,color .2s}
+.nav-cta:hover{background:var(--brass);color:var(--night)}
+@media(max-width:860px){.nav-links{display:none}}
+@media(max-width:420px){.nav-logo .wm{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;
+  justify-content:flex-end;padding:150px 0 0;overflow:hidden;
+  background:linear-gradient(180deg,var(--night) 0%,#0A2A1F 40%,var(--mangrove) 100%)}
+.hero-scene{position:absolute;inset:auto 0 0 0;width:100%;height:62%;z-index:1}
+.hero-inner{position:relative;z-index:3;width:100%}
+.hero h1{font-size:clamp(2.5rem,6.6vw,5rem);line-height:1.0;letter-spacing:-.015em;max-width:13ch}
+.hero h1 em{font-style:italic;color:var(--brass)}
+.hero-sub{margin-top:26px;font-size:clamp(1rem,1.5vw,1.15rem);line-height:1.6;
+  color:var(--nsuku);max-width:44ch}
+.hero-actions{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap;padding-bottom:56px}
+.btn-primary{background:var(--brass);color:var(--night);padding:15px 30px;
+  font-weight:600;font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:9px;transition:background .2s,transform .2s}
+.btn-primary:hover{background:var(--brass-bright);transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(242,235,221,.32);padding:15px 30px;
+  font-weight:600;font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;
+  transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:var(--brass);color:var(--brass)}
+
+/* ---------- marquee line ---------- */
+.crave{background:var(--mangrove);border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);padding:26px 0;text-align:center}
+.crave p{font-family:var(--f-display);font-style:italic;
+  font-size:clamp(1.3rem,3vw,2rem);color:var(--brass);letter-spacing:.01em}
+
+/* ---------- sections ---------- */
+section{position:relative}
+.pad{padding:96px 0}
+.mangrove{background:var(--mangrove)}
+.night{background:var(--night)}
+h2{font-size:clamp(1.9rem,4.2vw,3.1rem);line-height:1.1;max-width:18ch}
+h2 em{font-style:italic;color:var(--brass)}
+.lede{margin-top:20px;color:var(--nsuku);max-width:56ch;font-size:1.03rem}
+
+/* ---------- house note ---------- */
+.house{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start}
+@media(max-width:880px){.house{grid-template-columns:1fr;gap:40px}}
+.house p+p{margin-top:16px}
+.house-note{border-left:2px solid var(--brass);padding:6px 0 6px 24px;
+  font-family:var(--f-display);font-size:1.18rem;line-height:1.55;font-style:italic}
+
+/* ---------- menu ---------- */
+.menu-head{display:flex;justify-content:space-between;align-items:flex-end;
+  gap:24px;flex-wrap:wrap;margin-bottom:52px}
+.menu-link{color:var(--brass);font-size:.85rem;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;border-bottom:1px solid var(--rule);padding-bottom:4px}
+.menu-link:hover{border-color:var(--brass)}
+.menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+@media(max-width:820px){.menu-cols{grid-template-columns:1fr;gap:44px}}
+.menu-block+.menu-block{margin-top:44px}
+.menu-block h3{font-size:1.5rem;color:var(--brass);margin-bottom:4px}
+.menu-block .sub{font-size:.82rem;color:var(--nsuku);letter-spacing:.02em;margin-bottom:20px}
+.row{display:grid;grid-template-columns:1fr auto;gap:0 20px;
+  padding:11px 0;border-bottom:1px solid rgba(200,162,74,.14);
+  font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.row .dish{font-weight:500;font-size:.98rem}
+.row .dish small{display:block;font-weight:400;font-size:.79rem;color:var(--nsuku);margin-top:2px}
+.row .price{color:var(--brass);font-weight:500;font-size:.98rem;align-self:start;white-space:nowrap}
+.vat{margin-top:28px;font-size:.8rem;color:var(--nsuku);font-style:italic}
+
+/* ---------- founder ---------- */
+.founder-grid{display:grid;grid-template-columns:.85fr 1fr;gap:64px;align-items:center}
+@media(max-width:880px){.founder-grid{grid-template-columns:1fr;gap:36px}}
+.portrait{aspect-ratio:4/5;background:var(--mangrove-lift);
+  border:1px solid var(--rule);position:relative;overflow:hidden;
+  display:flex;align-items:flex-end;padding:22px}
+.portrait svg{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
+.portrait .cap{position:relative;z-index:2;font-size:.76rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--brass)}
+.pull{margin-top:26px;font-family:var(--f-display);font-style:italic;
+  font-size:1.3rem;line-height:1.5;color:var(--ivory);border-top:1px solid var(--rule);padding-top:22px}
+.founder-copy p{color:var(--nsuku);margin-top:16px}
+
+/* ---------- rooms ---------- */
+.rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px}
+@media(max-width:820px){.rooms{grid-template-columns:1fr}}
+.room{background:var(--mangrove);padding:34px 28px 30px;border:1px solid var(--rule);
+  position:relative;overflow:hidden;min-height:230px;display:flex;flex-direction:column;justify-content:flex-end}
+.room svg{position:absolute;inset:0;width:100%;height:100%;opacity:.32}
+.room b,.room p{position:relative;z-index:2}
+.room b{font-family:var(--f-display);font-weight:400;font-size:1.45rem;color:var(--brass);margin-bottom:8px}
+.room p{font-size:.88rem;color:var(--nsuku);line-height:1.5}
+
+/* ---------- visit ---------- */
+.visit-grid{display:grid;grid-template-columns:1fr .85fr;gap:64px;align-items:center}
+@media(max-width:880px){.visit-grid{grid-template-columns:1fr;gap:40px}}
+.card{border:1px solid var(--brass);padding:34px;background:var(--night)}
+.card h3{font-size:1.6rem;margin-bottom:22px}
+.line{display:flex;gap:18px;padding:12px 0;border-top:1px solid var(--rule);font-size:.92rem}
+.line strong{color:var(--brass);font-weight:600;min-width:88px;flex-shrink:0;
+  font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;padding-top:3px}
+.line span{color:var(--nsuku)}
+
+/* ---------- footer ---------- */
+footer{background:var(--night);padding:56px 0 110px;border-top:1px solid var(--rule)}
+.foot-inner{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;align-items:center}
+.foot-logo{font-family:var(--f-display);font-size:1.05rem;letter-spacing:.04em}
+.foot-tags{display:flex;gap:20px;font-size:.82rem;color:var(--nsuku);flex-wrap:wrap}
+.foot-copy{margin-top:34px;font-size:.76rem;color:rgba(185,175,156,.6)}
+
+/* ---------- sticky order bar (mobile) ---------- */
+.sticky-order{position:fixed;left:0;right:0;bottom:0;z-index:120;
+  background:var(--brass);color:var(--night);display:none;
+  align-items:center;justify-content:center;gap:10px;
+  padding:16px;font-weight:600;font-size:.86rem;letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:860px){.sticky-order{display:flex}}
+
+/* ---------- premium interactions ---------- */
+
+.btn-primary, .btn-ghost { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s, color 0.2s, border-color 0.2s; }
+.btn-primary:active, .btn-ghost:active { transform: scale(0.96); }
+
+.row { position: relative; overflow: hidden; transition: color 0.3s ease, transform 0.3s ease; border-radius: 4px; z-index: 1; }
+.row::before { content: ""; position: absolute; inset: 0; background: rgba(200,162,74,0.08); transform: translateX(-100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: -1; }
+.row:hover { color: var(--brass-bright); transform: translateX(4px); }
+.row:hover::before { transform: translateX(0); }
+.row .dish, .row .price { transition: color 0.3s ease; }
+.row:hover .price { color: var(--ivory); }
+.row .dish::after { content: " →"; opacity: 0; transform: translateX(-10px); display: inline-block; transition: all 0.3s ease; color: var(--brass-bright); position: absolute; margin-left: 8px; }
+.row:hover .dish::after { opacity: 1; transform: translateX(0); }
+
+/* ---------- whatsapp FAB ---------- */
+.fab {
+  position: fixed; bottom: 24px; right: 24px; z-index: 1000;
+  width: 56px; height: 56px; background: var(--calabash); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(7, 26, 19, 0.4);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.fab svg { width: 30px; height: 30px; fill: #fff; }
+.fab:hover { transform: scale(1.1); }
+.fab::before {
+  content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--calabash);
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+@media(max-width:860px) { .fab { bottom: 80px; } }
+
+/* ---------- spotify widget ---------- */
+.spotify-widget {
+  position: fixed; bottom: 24px; left: 24px; z-index: 1000;
+  width: 300px; height: 80px;
+  box-shadow: 0 8px 24px rgba(7, 26, 19, 0.6);
+  border-radius: 12px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.spotify-widget:hover { transform: translateY(-4px); }
+@media(max-width:860px) { .spotify-widget { bottom: 80px; left: 20px; width: 240px; } }
+</style>
+</head>
+<body>
+
+<!-- ===== shared pattern defs ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <pattern id="pelete" width="60" height="34" patternUnits="userSpaceOnUse">
+      <rect width="60" height="34" fill="#0C3326"/>
+      <rect x="14" width="3" height="34" fill="#9E2B25" opacity=".8"/>
+      <rect x="41" width="6" height="34" fill="#C8A24A" opacity=".4"/>
+      <rect y="9" width="60" height="2" fill="#9E2B25" opacity=".6"/>
+      <rect y="24" width="60" height="4" fill="#C8A24A" opacity=".26"/>
+      <path d="M30 5 L37 17 L30 29 L23 17 Z" fill="#071A13"/>
+    </pattern>
+    <pattern id="net" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M0 20 L20 0 L40 20 L20 40 Z" fill="none" stroke="#C8A24A" stroke-width=".7"/>
+    </pattern>
+  </defs>
+</svg>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M18 13 q-4-7 3-11 q-2.5 7 5 10 q4.5 2 2 7" fill="none" stroke="#EE4C1E" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M6 19 h28 a14 14 0 0 1 -28 0 z" fill="#3FA34D"/>
+      </svg>
+      <span class="wm">THE PEPPERSOUP SHOP</span>
+    </a>
+    <div class="nav-links">
+      <a href="#kitchen">The Kitchen</a>
+      <a href="#menu">Menu</a>
+      <a href="#events">Events</a>
+      <a href="#founder">Betty Harry</a>
+      <a href="#rooms">The Room</a>
+      <a href="#visit">Visit</a>
+    </div>
+    <a href="https://wa.me/2349063211390" class="nav-cta">Order</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <svg class="hero-scene" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <circle cx="930" cy="120" r="52" fill="#C8A24A" opacity=".28"/>
+    <path d="M0 300 Q150 288 300 296 T600 292 T900 298 T1200 290 L1200 500 L0 500 Z" fill="#071A13" opacity=".55"/>
+    <g fill="#071A13" opacity=".75">
+      <path d="M80 300 q6-42 2-64 q14 14 30 10 q-16 10 -20 54 z"/>
+      <path d="M1130 300 q6-48 2-72 q16 16 34 12 q-18 12 -22 60 z"/>
+      <path d="M1050 302 q4-34 1-52 q11 12 25 9 q-13 8 -16 43 z"/>
+    </g>
+    <g opacity=".8">
+      <path d="M470 296 q40 10 84 0 l-8 9 q-34 7 -68 0 z" fill="#071A13"/>
+      <path d="M512 296 v-22" stroke="#071A13" stroke-width="2.4"/>
+      <circle cx="512" cy="272" r="5" fill="#071A13"/>
+    </g>
+    <g stroke="#C8A24A" opacity=".16" stroke-width="1">
+      <path d="M0 330 h1200 M0 356 h1200 M0 384 h1200 M0 416 h1200"/>
+    </g>
+  </svg>
+
+  <div class="container hero-inner">
+    <div class="eyebrow">Nigeria's Best Event Peppersoup</div>
+    <h1>From the rivers of Kalabari <em>to your table.</em></h1>
+    <p class="hero-sub">The #1 peppersoup in Lagos, brought to you the way the East cooks it — fresh herbs and native spice. Cooked every day in a room built to feel like home, and served at Nigeria's biggest events.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/2349063211390" class="btn-primary">Order on WhatsApp</a>
+      <a href="#menu" class="btn-ghost">See the menu</a>
+    </div>
+  </div>
+</header>
+
+<div class="crave"><p>…you crave it, we make it.</p></div>
+
+<!-- ===== THE KITCHEN ===== -->
+<section class="pad night" id="kitchen">
+  <div class="container house">
+    <div class="reveal">
+      <div class="eyebrow">The house note</div>
+      <h2>Not all peppersoups are <em>created equal.</em></h2>
+    </div>
+    <div class="reveal">
+      <p class="lede">Every pot here is simmered with fresh herbs, native spices, and recipes rooted in Kalabari tradition. Nothing arrives from a base. Nothing is thinned to stretch a service.</p>
+      <p class="lede">Whether you're recovering, celebrating, or simply craving comfort, there's a bowl waiting for you — and we'll tell you honestly which one you want.</p>
+      <p class="house-note">In Rivers tradition, peppersoup is medicine before it is a meal. We've never stopped treating it that way.</p>
+    </div>
+  </div>
+</section>
+
+<svg class="band" viewBox="0 0 1200 34" preserveAspectRatio="none" aria-hidden="true">
+  <rect width="1200" height="34" fill="url(#pelete)"/>
+</svg>
+
+<!-- ===== MENU ===== -->
+<section class="pad mangrove" id="menu">
+  <div class="container">
+    <div class="menu-head reveal">
+      <div>
+        <div class="eyebrow">Hot, fresh and ready — every day</div>
+        <h2>The Kalabari <em>Culture Menu</em></h2>
+      </div>
+      <a href="https://wa.me/2349063211390" class="menu-link">Full menu on WhatsApp →</a>
+    </div>
+
+    <div class="menu-cols">
+      <div class="reveal">
+        <div class="menu-block">
+          <h3>The Royal Herd</h3>
+          <div class="sub">Peppersoups fit for royalty</div>
+          <div class="row"><span class="dish">Goatmeat Peppersoup</span><span class="price">₦8,925</span></div>
+          <div class="row"><span class="dish">Chicken Peppersoup</span><span class="price">₦11,025</span></div>
+          <div class="row"><span class="dish">Turkey Peppersoup</span><span class="price">₦13,125</span></div>
+          <div class="row"><span class="dish">Cowtail Peppersoup</span><span class="price">₦13,125</span></div>
+          <div class="row"><span class="dish">Guinea Fowl Peppersoup</span><span class="price">₦13,125</span></div>
+        </div>
+
+        <div class="menu-block">
+          <h3>From the Sea</h3>
+          <div class="sub">What the river brought home</div>
+          <div class="row"><span class="dish">Catfish Peppersoup</span><span class="price">₦8,400</span></div>
+          <div class="row"><span class="dish">Obokun<small>River catfish</small></span><span class="price">₦10,000</span></div>
+          <div class="row"><span class="dish">Croaker Peppersoup<small>Cut</small></span><span class="price">₦9,975</span></div>
+          <div class="row"><span class="dish">Tilapia Peppersoup<small>Full fish</small></span><span class="price">₦15,750</span></div>
+          <div class="row"><span class="dish">Seafood Peppersoup</span><span class="price">₦18,900</span></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="menu-block">
+          <h3>The Fisherwoman's Pot</h3>
+          <div class="sub">Rich riverbank favourites, served by the litre</div>
+          <div class="row"><span class="dish">Fisherman Soup<small>One portion</small></span><span class="price">₦21,525</span></div>
+          <div class="row"><span class="dish">Fisherman Soup<small>3 litres</small></span><span class="price">₦105,000</span></div>
+          <div class="row"><span class="dish">Fisherman Soup<small>5 litres</small></span><span class="price">₦126,000</span></div>
+          <div class="row"><span class="dish">Onunu &amp; Fresh Fish Stew</span><span class="price">₦15,750</span></div>
+        </div>
+
+        <div class="menu-block">
+          <h3>Healing &amp; Recovery</h3>
+          <div class="sub">Traditional broths for strength and wellness</div>
+          <div class="row"><span class="dish">Ajumbese — J'mmiri Oku<small>Nursing mothers' special</small></span><span class="price">₦15,750</span></div>
+          <div class="row"><span class="dish">The Peppersoup Shot</span><span class="price">₦1,050</span></div>
+          <div class="row"><span class="dish">Hangover Bowl</span><span class="price">₦5,250</span></div>
+        </div>
+
+        <div class="menu-block">
+          <h3>Queen's Combo</h3>
+          <div class="sub">Signature platters, built for a table</div>
+          <div class="row"><span class="dish">Whole Chicken, Herb Rice &amp; Scent Leaf Sauce</span><span class="price">₦42,000</span></div>
+          <div class="row"><span class="dish">Guinea Fowl Feast</span><span class="price">₦29,400</span></div>
+          <div class="row"><span class="dish">Full Catfish Feast</span><span class="price">₦28,350</span></div>
+          <div class="row"><span class="dish">The Goat King Platter<small>Four ways, one goat — feeds 3</small></span><span class="price">₦45,000</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="vat">Prices exclusive of VAT, take-out pack and bag. Rice, pasta, swallow, sides and the full bar list are on the Fast Food menu.</p>
+  </div>
+</section>
+
+<svg class="band" viewBox="0 0 1200 34" preserveAspectRatio="none" aria-hidden="true">
+  <rect width="1200" height="34" fill="url(#pelete)"/>
+</svg>
+
+<!-- ===== EVENTS ===== -->
+<section class="pad night" id="events">
+  <div class="container visit-grid">
+    <div class="reveal">
+      <div class="eyebrow">Catering & Festivals</div>
+      <h2>Made for <em>gathering.</em></h2>
+      <p class="lede">From weddings to Salah to corporate retreats, we bring the authentic heat of Rivers state to Nigeria's biggest celebrations. Plus, join us annually for The Peppersoup Festival — a celebration of culture, food, and community founded by Betty Harry.</p>
+      <div class="hero-actions" style="padding-bottom:0">
+        <a href="https://wa.me/2349063211390" class="btn-primary">Book us for your event</a>
+      </div>
+    </div>
+    <div class="card reveal" style="border-color:var(--rule);background:var(--mangrove);">
+      <h3 style="color:var(--brass);">Our Services</h3>
+      <div class="line" style="border-top-color:rgba(200,162,74,.14);"><strong>Weddings</strong><span>Full-service peppersoup stations for traditional and white weddings</span></div>
+      <div class="line" style="border-top-color:rgba(200,162,74,.14);"><strong>Corporate</strong><span>Premium catering for end-of-year parties and executive retreats</span></div>
+      <div class="line" style="border-top-color:rgba(200,162,74,.14);"><strong>Festivals</strong><span>Host of the annual Peppersoup Festival</span></div>
+      <div class="line" style="border-top-color:rgba(200,162,74,.14);"><strong>Platters</strong><span>The Goat King Platter — perfect for small group tables</span></div>
+    </div>
+  </div>
+</section>
+
+<svg class="band" viewBox="0 0 1200 34" preserveAspectRatio="none" aria-hidden="true">
+  <rect width="1200" height="34" fill="url(#pelete)"/>
+</svg>
+
+<!-- ===== FOUNDER ===== -->
+<section class="pad night" id="founder">
+  <div class="container founder-grid">
+    <div class="portrait reveal">
+      <img src="images/betty_harry.png" alt="Betty Harry portrait" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.8">
+      <span class="cap">Betty Harry — The Peppersoup Queen</span>
+    </div>
+    <div class="founder-copy reveal">
+      <div class="eyebrow">The woman behind the pot</div>
+      <h2>One kitchen, <em>seven years, one standard.</em></h2>
+      <p>Betty Harry, the Peppersoup Queen, started cooking the peppersoup she grew up on out of a one-bedroom apartment — the Kalabari way, with patience, real fish and no shortcuts.</p>
+      <p>Seven years later, that one-bedroom operation caters for Nigeria's biggest weddings, hosts the annual Peppersoup Festival, and serves Lekki Phase 1 from a room built around the culture the food comes from. The pot got bigger. Nothing else changed.</p>
+      <p class="pull">"A love letter to Kalabari culture, Rivers heat, and comfort food."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE ROOM ===== -->
+<section class="pad mangrove" id="rooms">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">The room</div>
+      <h2>Built like a river house, <em>set in Lekki.</em></h2>
+      <p class="lede">Dining here is the other half of the recipe. Come for a bowl, stay for the room.</p>
+    </div>
+    <div class="rooms reveal">
+      <div class="room">
+        <img src="images/peppersoup_calabash_1786020383703.jpg" alt="Peppersoup in calabash" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4">
+        <b>Served in the vessel</b>
+        <p>Calabash gourd, clay pot, banana leaf, carved wood. The broth arrives the way it was always meant to.</p>
+      </div>
+      <div class="room">
+        <img src="images/restaurant_interior_1786020394972.jpg" alt="Restaurant interior" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4">
+        <b>Cloth and carving</b>
+        <p>Pelete Bite cut-thread cloth, green arches and warm lamplight — the East, without the museum.</p>
+      </div>
+      <div class="room">
+        <img src="images/catered_event_1786020405454.jpg" alt="Catered event table" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4">
+        <b>Made for gathering</b>
+        <p>Weddings, birthdays, Salah and corporate service — plus the Goat King Platter for a table of three.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="band" viewBox="0 0 1200 34" preserveAspectRatio="none" aria-hidden="true">
+  <rect width="1200" height="34" fill="url(#pelete)"/>
+</svg>
+
+<!-- ===== VISIT ===== -->
+<section class="pad night" id="visit">
+  <div class="container visit-grid">
+    <div class="reveal">
+      <div class="eyebrow">Find us</div>
+      <h2>Come hungry. <em>Leave family.</em></h2>
+      <p class="lede">Dine in, order for delivery, or ask about catering. Someone answers the WhatsApp line every day we're open.</p>
+      <div class="hero-actions" style="padding-bottom:0">
+        <a href="https://wa.me/2349063211390" class="btn-primary">Order on WhatsApp</a>
+      </div>
+    </div>
+    <div class="card reveal">
+      <h3>Lekki Phase 1</h3>
+      <div class="line"><strong>Address</strong><span>5 Chris Madueke Street, Bliss Mall, Lekki Phase 1, Lagos</span></div>
+      <div class="line"><strong>Hours</strong><span>Monday–Saturday 11am–10pm · Sunday from 12pm</span></div>
+      <div class="line"><strong>WhatsApp</strong><span>+234 906 321 1390</span></div>
+      <div class="line"><strong>Delivery</strong><span>Glovo, or order direct on WhatsApp</span></div>
+      <div class="line"><strong>Catering</strong><span>Events, weddings and corporate — ask for a quote</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-inner">
+      <div class="foot-logo">THE PEPPERSOUP SHOP</div>
+      <div class="foot-tags">
+        <span>#ThePeppersoupShop</span>
+        <span>#PeppersoupInLekki</span>
+        <span>#PeppersoupQueen</span>
+      </div>
+    </div>
+    <div class="foot-copy">© 2026 The Peppersoup Shop, Lekki Phase 1, Lagos.</div>
+  </div>
+</footer>
+
+<a class="sticky-order" href="https://wa.me/2349063211390">Order on WhatsApp</a>
+
+<div class="spotify-widget reveal">
+  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2WIaOFFalasDSYeQiYz1tV?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+
+<a href="https://wa.me/2349063211390" class="fab reveal" aria-label="Order on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.031 2C6.495 2 2 6.495 2 12.031c0 1.77.46 3.491 1.336 5.006L2 22l5.12-1.312A9.97 9.97 0 0 0 12.031 22c5.536 0 10.031-4.495 10.031-10.031C22.062 6.495 17.567 2 12.031 2zm5.72 14.156c-.244.686-1.42 1.326-1.956 1.385-.515.056-1.164.24-3.328-.658-2.617-1.085-4.298-3.753-4.428-3.926-.13-.173-1.056-1.408-1.056-2.684 0-1.276.666-1.904.903-2.164.237-.26.516-.326.687-.326.17 0 .343.003.49.01.155.006.363-.058.568.437.214.516.732 1.787.8 1.926.067.139.112.3.023.478-.09.18-.135.29-.27.443-.135.152-.284.32-.405.45-.13.14-.268.293-.118.552.148.258.66 1.092 1.417 1.767.973.868 1.785 1.14 2.043 1.27.26.13.41.11.564-.066.155-.176.666-.775.845-1.042.18-.266.357-.222.595-.132.238.09 1.5.707 1.758.835.258.128.43.19.493.296.062.106.062.615-.182 1.3z"/></svg>
+</a>
+
+<script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  // 1. Lenis Smooth Scroll
+  const lenis = new Lenis({
+    lerp: 0.08,
+    smoothWheel: true,
+  });
+  
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+  gsap.ticker.lagSmoothing(0);
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // 2. Initial States Setup
+  gsap.set('.reveal', { y: 40 });
+  gsap.set('.hero-inner > *', { y: 30 });
+  gsap.set('.menu-block .row', { x: -20 });
+
+  // 3. Hero Intro Animation
+  const heroTl = gsap.timeline();
+  heroTl.to('.hero .eyebrow', { autoAlpha: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.1 })
+        .to('.hero h1', { autoAlpha: 1, y: 0, duration: 1.2, ease: "power3.out" }, "-=0.7")
+        .to('.hero-sub', { autoAlpha: 1, y: 0, duration: 1, ease: "power3.out" }, "-=0.9")
+        .to('.hero-actions > *', { autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power2.out" }, "-=0.7");
+
+  // 4. Hero Parallax
+  gsap.to('.hero-scene', {
+    yPercent: 25,
+    ease: "none",
+    scrollTrigger: { trigger: '.hero', start: "top top", end: "bottom top", scrub: true }
+  });
+
+  // 5. Marquee Scrubber
+  gsap.to('.crave p', {
+    x: "-10vw",
+    ease: "none",
+    scrollTrigger: { trigger: '.crave', start: "top bottom", end: "bottom top", scrub: 1 }
+  });
+
+  // 6. Section Reveals
+  gsap.utils.toArray('.reveal').forEach(elem => {
+    if(elem.closest('.hero')) return;
+    
+    gsap.to(elem, {
+      autoAlpha: 1, 
+      y: 0, 
+      duration: 1.2, 
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: elem,
+        start: "top 85%",
+        toggleActions: "play none none none"
+      }
+    });
+  });
+
+  // 7. Menu Rows Stagger
+  gsap.utils.toArray('.menu-block').forEach(block => {
+    const rows = block.querySelectorAll('.row');
+    if(rows.length === 0) return;
+    gsap.to(rows, {
+      autoAlpha: 1,
+      x: 0,
+      stagger: 0.08,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: block,
+        start: "top 85%"
+      }
+    });
+  });
+
+  // 8. Image Parallax
+  gsap.set('.portrait img, .room img', { scale: 1.15, transformOrigin: "center center" });
+  gsap.utils.toArray('.portrait img, .room img').forEach(img => {
+    gsap.fromTo(img,
+      { yPercent: -8 },
+      {
+        yPercent: 8,
+        ease: "none",
+        scrollTrigger: {
+          trigger: img.parentElement,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      }
+    );
+  });
+
+  // 9. Pattern Band Scrub
+  gsap.set('.band', { width: "110%" });
+  gsap.utils.toArray('.band').forEach(band => {
+    gsap.to(band, {
+      xPercent: -5,
+      ease: "none",
+      scrollTrigger: {
+        trigger: band,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Peppersoup Shop — Nigeria's #1 Peppersoup Spot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --spice-red: #C41E3A;
+    --spice-red-dark: #9E1730;
+    --charcoal: #2C2C2C;
+    --turmeric: #E8A838;
+    --cream: #F8F1E3;
+    --forest: #2E5A3C;
+    --soft-black: #1A1A1A;
+    --cream-warm: #F1E6D3;
+
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--soft-black);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 20px; }
+  }
+
+  /* ---------- Utility: steam motif ---------- */
+  .steam-svg { position: absolute; pointer-events: none; }
+
+  @keyframes rise {
+    0%   { transform: translateY(6%) scaleY(0.98); opacity: 0.55; }
+    50%  { transform: translateY(-3%) scaleY(1.02); opacity: 0.85; }
+    100% { transform: translateY(6%) scaleY(0.98); opacity: 0.55; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .steam-path { animation: none !important; }
+  }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(26,26,26,0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(232,168,56,0.15);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.01em;
+    color: var(--cream);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .nav-logo span {
+    color: var(--turmeric);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+
+  .nav-links a {
+    opacity: 0.82;
+    transition: opacity 0.2s ease;
+    position: relative;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible { opacity: 1; }
+  .nav-links a:focus-visible { outline: 2px solid var(--turmeric); outline-offset: 4px; border-radius: 2px; }
+
+  .nav-cta {
+    background: var(--spice-red);
+    color: var(--cream);
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .nav-cta:hover { background: #D82C46; transform: translateY(-1px); }
+  .nav-cta:focus-visible { outline: 2px solid var(--turmeric); outline-offset: 3px; }
+
+  .nav-mobile-hide { display: flex; }
+  @media (max-width: 780px) {
+    .nav-mobile-hide { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 140px 32px 100px;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 0%, rgba(196,30,58,0.35), transparent 60%),
+      linear-gradient(180deg, var(--soft-black) 0%, #241414 55%, var(--soft-black) 100%);
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--turmeric);
+    margin-bottom: 28px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--turmeric);
+    opacity: 0.6;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.6rem, 6.4vw, 5.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    max-width: 15ch;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--turmeric);
+  }
+
+  .hero-sub {
+    margin-top: 28px;
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    line-height: 1.55;
+    color: rgba(248,241,227,0.78);
+    max-width: 46ch;
+    font-weight: 400;
+  }
+
+  .hero-actions {
+    margin-top: 44px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--spice-red);
+    color: var(--cream);
+    padding: 16px 32px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .btn-primary:hover { background: #D82C46; transform: translateY(-2px); }
+  .btn-primary:focus-visible { outline: 2px solid var(--turmeric); outline-offset: 3px; }
+
+  .btn-secondary {
+    border: 1px solid rgba(248,241,227,0.3);
+    color: var(--cream);
+    padding: 16px 32px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .btn-secondary:hover { border-color: var(--turmeric); background: rgba(232,168,56,0.08); }
+  .btn-secondary:focus-visible { outline: 2px solid var(--turmeric); outline-offset: 3px; }
+
+  .hero-tagline-strip {
+    margin-top: 90px;
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid rgba(248,241,227,0.12);
+  }
+
+  .strip-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .strip-item .num {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--turmeric);
+  }
+  .strip-item .label {
+    font-size: 0.82rem;
+    color: rgba(248,241,227,0.6);
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- Steam divider ---------- */
+  .steam-divider {
+    position: relative;
+    height: 120px;
+    background: var(--soft-black);
+    overflow: hidden;
+  }
+
+  /* ---------- Story section ---------- */
+  .story {
+    background: var(--cream);
+    color: var(--soft-black);
+    padding: 120px 0 100px;
+    position: relative;
+  }
+
+  .story-head {
+    max-width: 640px;
+    margin-bottom: 72px;
+  }
+
+  .story-head .eyebrow { color: var(--spice-red); }
+  .story-head .eyebrow::before { background: var(--spice-red); }
+
+  .story-head h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+  }
+
+  .story-head h2 em {
+    font-style: italic;
+    color: var(--spice-red);
+    font-weight: 500;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(44,44,44,0.14);
+    border: 1px solid rgba(44,44,44,0.14);
+  }
+
+  @media (max-width: 780px) {
+    .pillars { grid-template-columns: 1fr; }
+  }
+
+  .pillar {
+    background: var(--cream);
+    padding: 44px 40px;
+    transition: background 0.25s ease;
+  }
+  .pillar:hover { background: var(--cream-warm); }
+
+  .pillar-tag {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .pillar h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  .pillar p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: rgba(26,26,26,0.72);
+    max-width: 42ch;
+  }
+
+  /* ---------- Founder ---------- */
+  .founder {
+    background: var(--soft-black);
+    padding: 110px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  @media (max-width: 860px) {
+    .founder-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+
+  .founder-portrait {
+    aspect-ratio: 4/5;
+    border-radius: 6px;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(232,168,56,0.35), transparent 55%),
+      linear-gradient(155deg, #3a1f24, #1a1a1a 65%);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 28px;
+    border: 1px solid rgba(232,168,56,0.2);
+  }
+
+  .founder-portrait .cap {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--turmeric);
+  }
+
+  .founder-copy .eyebrow { color: var(--turmeric); }
+  .founder-copy .eyebrow::before { background: var(--turmeric); }
+
+  .founder-copy h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+    line-height: 1.15;
+    margin-bottom: 22px;
+    letter-spacing: -0.01em;
+  }
+
+  .founder-copy h2 em {
+    font-style: italic;
+    color: var(--spice-red);
+    font-weight: 500;
+  }
+
+  .founder-copy p {
+    font-size: 1.05rem;
+    line-height: 1.72;
+    color: rgba(248,241,227,0.76);
+    max-width: 56ch;
+    margin-bottom: 18px;
+  }
+
+  .quote-mark {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--turmeric);
+    border-left: 2px solid var(--spice-red);
+    padding-left: 20px;
+    margin-top: 28px;
+    max-width: 46ch;
+    line-height: 1.5;
+  }
+
+  /* ---------- Menu teaser ---------- */
+  .menu-teaser {
+    background: var(--cream);
+    color: var(--soft-black);
+    padding: 110px 0;
+  }
+
+  .menu-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+  }
+
+  .menu-head .eyebrow { color: var(--spice-red); }
+  .menu-head .eyebrow::before { background: var(--spice-red); }
+
+  .menu-head h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+    letter-spacing: -0.01em;
+  }
+
+  .menu-head h2 em { font-style: italic; color: var(--spice-red); font-weight: 500; }
+
+  .menu-link {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--spice-red);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--spice-red);
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  @media (max-width: 900px) {
+    .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .menu-grid { grid-template-columns: 1fr; }
+  }
+
+  .menu-card {
+    background: var(--soft-black);
+    color: var(--cream);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .menu-card-img {
+    aspect-ratio: 5/4;
+    background:
+      radial-gradient(circle at 65% 30%, rgba(196,30,58,0.55), transparent 60%),
+      linear-gradient(160deg, #2f1a1a, #1a1a1a 70%);
+    position: relative;
+  }
+
+  .menu-card-body {
+    padding: 26px 24px 30px;
+  }
+
+  .menu-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .menu-card p {
+    font-size: 0.9rem;
+    color: rgba(248,241,227,0.62);
+    line-height: 1.55;
+  }
+
+  .spice-level {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(26,26,26,0.55);
+    backdrop-filter: blur(4px);
+    color: var(--turmeric);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 6px 12px;
+    border-radius: 100px;
+    border: 1px solid rgba(232,168,56,0.4);
+  }
+
+  /* ---------- Visit / CTA ---------- */
+  .visit {
+    background: var(--spice-red);
+    color: var(--cream);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .visit-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+  }
+
+  @media (max-width: 860px) {
+    .visit-inner { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .visit h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+
+  .visit h2 em { font-style: italic; color: var(--soft-black); font-weight: 500; }
+
+  .visit p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: rgba(248,241,227,0.88);
+    max-width: 48ch;
+    margin-bottom: 32px;
+  }
+
+  .visit .btn-primary {
+    background: var(--soft-black);
+  }
+  .visit .btn-primary:hover { background: #000; }
+
+  .location-card {
+    background: rgba(26,26,26,0.18);
+    border: 1px solid rgba(248,241,227,0.28);
+    border-radius: 6px;
+    padding: 34px;
+  }
+
+  .location-card .tag {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--soft-black);
+    background: var(--turmeric);
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 18px;
+  }
+
+  .location-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .location-line {
+    display: flex;
+    gap: 12px;
+    font-size: 0.94rem;
+    line-height: 1.6;
+    color: rgba(248,241,227,0.92);
+    margin-bottom: 10px;
+  }
+
+  .location-line strong {
+    font-weight: 600;
+    min-width: 62px;
+    color: var(--turmeric);
+    flex-shrink: 0;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer {
+    background: var(--soft-black);
+    padding: 56px 0 36px;
+    border-top: 1px solid rgba(248,241,227,0.1);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .footer-logo span { color: var(--turmeric); font-style: italic; font-weight: 500; }
+
+  .footer-tags {
+    display: flex;
+    gap: 20px;
+    font-size: 0.85rem;
+    color: rgba(248,241,227,0.5);
+    flex-wrap: wrap;
+  }
+
+  .footer-copy {
+    text-align: center;
+    margin-top: 36px;
+    font-size: 0.8rem;
+    color: rgba(248,241,227,0.35);
+  }
+
+  /* reveal on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">THE PEPPERSOUP <span>Shop</span></a>
+    <div class="nav-links nav-mobile-hide">
+      <a href="#story">Our Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#founder">Founder</a>
+      <a href="#visit">Locations</a>
+    </div>
+    <a href="#visit" class="nav-cta">Order Now</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <svg class="steam-svg" viewBox="0 0 1200 800" style="top:-60px; left:0; width:100%; height:100%; opacity:0.5;" preserveAspectRatio="none" aria-hidden="true">
+    <path class="steam-path" d="M 200 800 C 170 650, 260 600, 220 480 C 180 360, 270 300, 230 180"
+          stroke="#E8A838" stroke-width="1.5" fill="none" opacity="0.35"
+          style="animation: rise 9s ease-in-out infinite;"/>
+    <path class="steam-path" d="M 980 800 C 1010 640, 920 580, 960 460 C 1000 340, 910 280, 950 160"
+          stroke="#E8A838" stroke-width="1.5" fill="none" opacity="0.3"
+          style="animation: rise 11s ease-in-out infinite 1.5s;"/>
+    <path class="steam-path" d="M 600 800 C 570 620, 660 560, 610 420"
+          stroke="#C41E3A" stroke-width="1.5" fill="none" opacity="0.28"
+          style="animation: rise 8s ease-in-out infinite 0.8s;"/>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="eyebrow">Lekki Phase 1 · Lagos</div>
+    <h1>You haven't had peppersoup <em>until you've had it</em> the Kalabari way.</h1>
+    <p class="hero-sub">Nigeria's #1 Peppersoup Spot — authentic Rivers-state recipes, fresh fish and spice daily, served hot in a room built to feel like home.</p>
+    <div class="hero-actions">
+      <a href="#visit" class="btn-primary">Order on WhatsApp →</a>
+      <a href="#menu" class="btn-secondary">See the Menu</a>
+    </div>
+
+    <div class="hero-tagline-strip">
+      <div class="strip-item">
+        <span class="num">100%</span>
+        <span class="label">Kalabari recipes</span>
+      </div>
+      <div class="strip-item">
+        <span class="num">7</span>
+        <span class="label">Days a week, 9am–9pm</span>
+      </div>
+      <div class="strip-item">
+        <span class="num">Fresh</span>
+        <span class="label">Fish & spice, daily</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= STORY / PILLARS ================= -->
+<section class="story" id="story">
+  <div class="container">
+    <div class="story-head reveal">
+      <div class="eyebrow">Every bowl tells a story</div>
+      <h2>Built on Kalabari heritage, <em>served with hospitality.</em></h2>
+    </div>
+
+    <div class="pillars reveal">
+      <div class="pillar">
+        <span class="pillar-tag">Heritage</span>
+        <h3>Kalabari roots, real spice</h3>
+        <p>Recipes, spices, and presentation drawn straight from Rivers-state tradition — nothing generic, nothing shortcut.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-tag">Journey</span>
+        <h3>From one room to a movement</h3>
+        <p>What started in a one-bedroom apartment is now a home for anyone craving the real thing — built one pot at a time.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-tag">Experience</span>
+        <h3>More than a meal</h3>
+        <p>Cast-iron pot tables, firewood warmth, and a room designed around the culture the food comes from.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-tag">Community</span>
+        <h3>Made for gathering</h3>
+        <p>From weddings to Salah to birthdays — and our own Pepper Soup Festival — every celebration gets a seat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOUNDER ================= -->
+<section class="founder" id="founder">
+  <svg class="steam-svg" viewBox="0 0 1200 800" style="top:0; right:-40px; width:60%; height:100%; opacity:0.4;" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M 900 800 C 870 620, 960 560, 920 400 C 880 260, 970 200, 930 60"
+          stroke="#C41E3A" stroke-width="1.5" fill="none" opacity="0.3"
+          style="animation: rise 10s ease-in-out infinite;"/>
+  </svg>
+  <div class="container founder-grid">
+    <div class="founder-portrait reveal">
+      <span class="cap">Betty Harry — The Peppersoup Queen</span>
+    </div>
+    <div class="founder-copy reveal">
+      <div class="eyebrow">The face behind the pot</div>
+      <h2>A queen's kitchen, <em>open to everyone.</em></h2>
+      <p>Betty Harry didn't set out to build a restaurant chain. She set out to share the pepper soup she grew up on — the Kalabari way, made with patience and real ingredients, cooked the way her family always did.</p>
+      <p>That one-bedroom kitchen became Lekki's most talked-about pepper soup spot, and the story is still being written — one bowl, one guest, one celebration at a time.</p>
+      <p class="quote-mark">"This win is ours. As e dey hot, we go dey serve am — with everything we have."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MENU TEASER ================= -->
+<section class="menu-teaser" id="menu">
+  <div class="container">
+    <div class="menu-head reveal">
+      <div>
+        <div class="eyebrow">Hot, fresh & ready</div>
+        <h2>Every bowl, <em>made to order.</em></h2>
+      </div>
+      <a href="#visit" class="menu-link">View full menu →</a>
+    </div>
+
+    <div class="menu-grid reveal">
+      <div class="menu-card">
+        <div class="menu-card-img"><span class="spice-level">Signature Heat</span></div>
+        <div class="menu-card-body">
+          <h3>Catfish Peppersoup</h3>
+          <p>Fresh catfish simmered in our house Kalabari spice blend — the one that started it all.</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-img"><span class="spice-level">Bold Heat</span></div>
+        <div class="menu-card-body">
+          <h3>Goat Meat Peppersoup</h3>
+          <p>Slow-simmered goat meat, deep pepper broth, and scent leaf — comfort in every spoonful.</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-img"><span class="spice-level">For Groups</span></div>
+        <div class="menu-card-body">
+          <h3>Catering & Events</h3>
+          <p>Weddings, birthdays, Salah, and celebrations — pepper soup service built for a crowd.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISIT / CTA ================= -->
+<section class="visit" id="visit">
+  <div class="container visit-inner">
+    <div class="reveal">
+      <h2>Come hungry. <em>Leave family.</em></h2>
+      <p>Dine in, order for delivery, or ask about catering for your next event. We're ready every day of the week.</p>
+      <a href="https://wa.me/2349063211390" class="btn-primary">Order on WhatsApp →</a>
+    </div>
+    <div class="location-card reveal">
+      <span class="tag">Lekki Phase 1</span>
+      <h3>Visit us today</h3>
+      <div class="location-line"><strong>Address</strong><span>5 Chris Madueke Street, Bliss Mall area, Lekki Phase 1, Lagos</span></div>
+      <div class="location-line"><strong>Hours</strong><span>Mon–Sat 9am–9pm · Sun from 12pm</span></div>
+      <div class="location-line"><strong>WhatsApp</strong><span>+234 906 321 1390</span></div>
+      <div class="location-line"><strong>Delivery</strong><span>Available via Glovo & WhatsApp order</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">THE PEPPERSOUP <span>Shop</span></div>
+      <div class="footer-tags">
+        <span>#ThePeppersoupShop</span>
+        <span>#PeppersoupinLekki</span>
+        <span>#PeppersoupQueen</span>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 The Peppersoup Shop. Nigeria's #1 Peppersoup Spot.</div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
